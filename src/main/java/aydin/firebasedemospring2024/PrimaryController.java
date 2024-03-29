@@ -30,13 +30,14 @@ public class PrimaryController {
     private TextField nameTextField;
 
     @FXML
+    private TextField phoneNumberTextField;
+
+    @FXML
     private TextArea outputTextArea;
 
     @FXML
     private Button readButton;
 
-    @FXML
-    private Button registerButton;
 
     @FXML
     private Button switchSecondaryViewButton;
@@ -65,11 +66,12 @@ public class PrimaryController {
         readFirebase();
     }
 
-    @FXML
+   // @FXML
+    /*
     void registerButtonClicked(ActionEvent event) {
         registerUser();
     }
-
+*/
 
     @FXML
     void writeButtonClicked(ActionEvent event) {
@@ -98,10 +100,12 @@ public class PrimaryController {
                 for (QueryDocumentSnapshot document : documents)
                 {
                     outputTextArea.setText(outputTextArea.getText()+ document.getData().get("Name")+ " , Age: "+
-                            document.getData().get("Age")+ " \n ");
+                            document.getData().get("Age")+ " Phone Number: "+ document.getData().get("Phone Number")+"\n");
                     System.out.println(document.getId() + " => " + document.getData().get("Name"));
                     person  = new Person(String.valueOf(document.getData().get("Name")),
-                            Integer.parseInt(document.getData().get("Age").toString()));
+                            Integer.parseInt(document.getData().get("Age").toString()),
+                            Integer.parseInt(document.getData().get("Phone Number").toString())
+                            );
                     listOfUsers.add(person);
                 }
             }
@@ -118,7 +122,7 @@ public class PrimaryController {
         }
         return key;
     }
-
+/*
     public boolean registerUser() {
         UserRecord.CreateRequest request = new UserRecord.CreateRequest()
                 .setEmail("user222@example.com")
@@ -141,7 +145,7 @@ public class PrimaryController {
             return false;
         }
 
-    }
+    }*/
 
     public void addData() {
 
@@ -150,7 +154,7 @@ public class PrimaryController {
         Map<String, Object> data = new HashMap<>();
         data.put("Name", nameTextField.getText());
         data.put("Age", Integer.parseInt(ageTextField.getText()));
-
+        data.put("Phone Number", Integer.parseInt(phoneNumberTextField.getText()));
         //asynchronously write data
         ApiFuture<WriteResult> result = docRef.set(data);
     }

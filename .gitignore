@@ -11,6 +11,7 @@ target/
 *.iws
 *.iml
 *.ipr
+key.json
 
 ### Eclipse ###
 .apt_generated
@@ -37,3 +38,4 @@ build/
 ### Mac OS ###
 .DS_Store
 /src/main/resources/aydin/firebasedemospring2024/key.jason
+/key.json
