@@ -9,6 +9,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
@@ -34,7 +35,7 @@ public class WelcomeScreen {
     private TextField emailTextField;
 
     @FXML
-    private TextField passwordTextField;
+    private PasswordField passwordField;
 
    public void registerButtonClicked(ActionEvent event) throws IOException {
         registerUser();
