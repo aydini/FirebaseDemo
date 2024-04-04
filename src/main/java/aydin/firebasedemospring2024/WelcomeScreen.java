@@ -9,6 +9,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 
 import java.io.IOException;
 import java.util.List;
@@ -30,7 +31,12 @@ public class WelcomeScreen {
     private Button signInButton;
 
     @FXML
-    void registerButtonClicked(ActionEvent event) {
+    private TextField emailTextField;
+
+    @FXML
+    private TextField passwordTextField;
+
+   public void registerButtonClicked(ActionEvent event) throws IOException {
         registerUser();
     }
 
@@ -38,35 +44,15 @@ public class WelcomeScreen {
     void signInButtonClicked(ActionEvent event) throws IOException, FirebaseAuthException {
         key = true;
 
-          if(DemoApp.fauth.getUserByEmail("user2447@example.com") != null) {
+          if(DemoApp.fauth.getUserByEmail(emailTextField.getText()) != null) {
               System.out.println("User exists");
               DemoApp.setRoot("primary");
           } else {
               System.out.println("User does not exist");
           }
     }
-    public boolean registerUser() {
-        UserRecord.CreateRequest request = new UserRecord.CreateRequest()
-                .setEmail("user2447@example.com")
-                .setEmailVerified(false)
-                .setPassword("secretTassword")
-                .setPhoneNumber("+112305678997")
-                .setDisplayName("Sohn Doe")
-                .setDisabled(false);
-
-        UserRecord userRecord;
-        try {
-            userRecord = DemoApp.fauth.createUser(request);
-            System.out.println("Successfully created new user with Firebase Uid: " + userRecord.getUid()
-                    + " check Firebase > Authentication > Users tab");
-            return true;
-
-        } catch (FirebaseAuthException ex) {
-            // Logger.getLogger(FirestoreContext.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("Error creating a new user in the firebase");
-            return false;
-        }
-
+    public void registerUser() throws IOException {
+        DemoApp.setRoot("registrationView");
     }
 
 }
