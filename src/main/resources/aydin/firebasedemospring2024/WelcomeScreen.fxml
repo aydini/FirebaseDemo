@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="401.0" prefWidth="600.0" style="-fx-background-color: #b6b6b6;" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="aydin.firebasedemospring2024.WelcomeScreen">
+   <children>
+      <Label layoutX="170.0" layoutY="14.0" stylesheets="@Style.css" text="Welcome Screen">
+         <font>
+            <Font name="Britannic Bold" size="36.0" />
+         </font>
+      </Label>
+      <Button fx:id="registerButtoon" layoutX="260.0" layoutY="314.0" mnemonicParsing="false" onAction="#registerButtonClicked" prefHeight="26.0" prefWidth="82.0" style="-fx-background-color: #cea3a3;" styleClass="button-shadows" stylesheets="@Style.css" text="Register">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="12.0" />
+         </font></Button>
+      <Button fx:id="signInButton" layoutX="259.0" layoutY="218.0" mnemonicParsing="false" onAction="#signInButtonClicked" prefHeight="26.0" prefWidth="82.0" style="-fx-background-color: #cea3a3;" styleClass="button-shadows" stylesheets="@Style.css" text="Sign in">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="12.0" />
+         </font></Button>
+      <VBox layoutX="170.0" layoutY="50.0" prefHeight="168.0" prefWidth="261.0" spacing="10.0">
+         <children>
+            <Label prefHeight="18.0" prefWidth="46.0" text="Email">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="emailTextField" promptText="Enter Email" />
+            <Label text="Password">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="passwordField" promptText="Enter password" />
+         </children>
+      </VBox>
+      <Label layoutX="205.0" layoutY="281.0" text="Don't have an account click below" textFill="#1b05e1" underline="true">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
